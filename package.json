@@ -1,0 +1,11 @@
+{
+  "name": "simplerxing.github.io",
+  "version": "1.0.0",
+  "description": "simplerxing's blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "simplerxing",
+  "license": "ISC"
+}
