@@ -1,7 +1,7 @@
 {
-  "name": "simplerxing.github.io",
-  "version": "1.0.0",
-  "description": "simplerxing's blog",
+  "name": "cobish.github.io",
+  "version": "3.4.0",
+  "description": "cobish's blog",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --inline",
     "build": "cross-env NODE_ENV=production webpack"
@@ -46,6 +46,4 @@
     "webpack-dev-server": "^1.15.1",
     "webpack-md5-hash": "0.0.5"
   }
-  "author": "simplerxing",
-  "license": "ISC"
 }
