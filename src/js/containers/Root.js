@@ -63,6 +63,11 @@ var Post = (location, cb) => {
   }, 'post');
 };
 
+//The <Router> tag should always be the primary parent tag that wraps the multiple URLs
+//with the <Route> tag. We can declare multiple <Route> tags with attribute components
+//that make your UI in-sync. When the history changes, the <Router> will render the
+//component with the matching URL
+
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Menu} />
