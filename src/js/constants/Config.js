@@ -4,7 +4,7 @@ export const CONFIG = {
   repo       : 'simplerxing.github.io',
   title      : 'simplerxing - blog',
   titleLoad  : 'simplerxing - 正在加载...',
-  duoshuo    : '6417351428376888000',
+  //duoshuo    : '6417351428376888000',
   //duoshuo    : 'cobish',
   baiduAnaly : '44271c2a09c65db7418304d9ddd9419a',
   //baiduAnaly : '84602bc3713ca2aeb0258c55adf6a333',
