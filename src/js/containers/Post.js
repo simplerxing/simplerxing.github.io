@@ -11,6 +11,9 @@ class Post extends Component {
     super(props);
   }
 
+// componentDidMount()这个方法会在组件加载完毕之后立即执行。在这个时候之后组件已经生成了对应的DOM结构，
+//可以通过this.getDOMNode()来进行访问
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchIssuesIfNeeded('created', 10000));

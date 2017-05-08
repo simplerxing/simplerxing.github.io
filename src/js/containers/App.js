@@ -10,6 +10,10 @@ class App extends Component {
     //this.addDuoshuoComment = this.addDuoshuoComment.bind(this);
   }
 
+//componentWillMount会在组件render之前执行，并且永远都只执行一次
+// componentDidMount()这个方法会在组件加载完毕之后立即执行。在这个时候之后组件已经生成了对应的DOM结构，
+//可以通过this.getDOMNode()来进行访问
+
   componentDidMount() {
     // 添加百度统计
     this.addBaiduAnaly();
@@ -19,10 +23,20 @@ class App extends Component {
 
     document.title = CONFIG.title;
 
+//简单介绍一下NProgress，它包含了如下几个常用的方法：
+
+//NProgress.start() — 显示加载条
+//NProgress.set(0.4) — 设置加载的百分比
+//NProgress.inc() — 增加一点儿
+//NProgress.done() — 完成进度条
+
     if (!this.props.isFetching) {
       NProgress.done();
     }
   }
+
+//componentWillReceiveProps(object nextProps)
+//在组件接收到一个新的prop时被执行。这个方法在初始化render时不会被调用
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.isFetching) {
