@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.addBaiduAnaly = this.addBaiduAnaly.bind(this);
-    this.addDuoshuoComment = this.addDuoshuoComment.bind(this);
+    //this.addDuoshuoComment = this.addDuoshuoComment.bind(this);
   }
 
   componentDidMount() {
@@ -15,7 +15,7 @@ class App extends Component {
     this.addBaiduAnaly();
 
     // 添加多说评论框
-    this.addDuoshuoComment();
+    //this.addDuoshuoComment();
 
     document.title = CONFIG.title;
 
@@ -43,6 +43,7 @@ class App extends Component {
     }
   }
 
+  /*--
   addDuoshuoComment() {
     window.duoshuoQuery = { short_name: CONFIG.duoshuo };
     (function() {
@@ -54,12 +55,13 @@ class App extends Component {
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   }
+  --*/
 
   render() {
     return (
       <div>
         <div id="logo">
-          <a href="#/">cobish.github.io</a>
+          <a href="#/">simplerxing.github.io</a>
         </div>
         <div>
           {this.props.children}

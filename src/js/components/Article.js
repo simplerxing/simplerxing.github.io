@@ -18,7 +18,7 @@ export default class Article extends Component {
   }
 
   handleClick() {
-    let url = `https://github.com/cobish/cobish.github.io/issues/${this.props.number}`;
+    let url = `https://github.com/simplerxing/simplerxing.github.io/issues/${this.props.number}`;
     window.location.href = url;
   }
 
