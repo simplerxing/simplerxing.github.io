@@ -100,4 +100,17 @@ function mapStateToProps(state) {
   }
 }
 
+//这样就可以在 App 这个组件里面通过 props 拿到 Store 的 dispatch 方法，但是注意现在的 App 没有监听
+// Store 的状态更改，如果要监听 Store 的状态更改，必须要指定 mapStateToProps 参数
+
+//[mapStateToProps(state, [ownProps]): stateProps]: 第一个可选参数是一个函数，只有指定了这个参数，
+//这个关联（connected）组件才会监听 Redux Store 的更新，每次更新都会调用 mapStateToProps 这个函数，
+//返回一个字面量对象将会合并到组件的 props 属性。 ownProps 是可选的第二个参数，它是传递给组件的 props，
+//当组件获取到新的 props 时，ownProps 都会拿到这个值并且执行 mapStateToProps 这个函数
+
+//[mapDispatchProps(dispatch, [ownProps]): dispatchProps]: 这个函数用来指定如何传递 dispatch 
+//给组件，在这个函数里面直接 dispatch action creator，返回一个字面量对象将会合并到组件的 props 属性，
+//这样关联组件可以直接通过 props 调用到 action， Redux 提供了一个 bindActionCreators() 辅助函数来
+//简化这种写法。 如果省略这个参数，默认直接把 dispatch 作为 props 传入。ownProps 作用同上
+
 export default connect(mapStateToProps)(App);
