@@ -112,7 +112,7 @@ export function fetchIssuesIfNeeded(filter, perPage) {
   // 当已经有issues的时候，则减少网络请求
   return function(dispatch, getState) {
     if ( shouldFetchIssues(getState()) ) {
-      console.log(getState())
+      //console.log(getState())
       // 在 thunk 里 dispatch 另一个 thunk！
       return dispatch(fetchIssues(filter, perPage));
     } else {
