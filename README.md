@@ -1,10 +1,10 @@
-# cobish's blog
+# simplerxing's blog
 
-这是一个基于 ``github page`` 和 ``github api`` 搭建的单页面静态博客，点击[「这里」](http://cobish.github.io)查看博客。
+这是一个基于 ``github page`` 和 ``github api`` 搭建的单页面静态博客，点击[「这里」](http://simplerxing.github.io)查看博客。
 
 ## Fork 使用
 
-将配置文件 ``src/js/constants/Config.js`` 的 ``百度统计`` 与 ``多说评论`` 配置修改成自己的账号。
+将配置文件 ``src/js/constants/Config.js`` 的 ``百度统计`` 与 ``多说评论``(已停止更新) 配置修改成自己的账号。
 
 ## 环境搭建
 
