@@ -23,20 +23,19 @@ class App extends Component {
 
     document.title = CONFIG.title;
 
-//简单介绍一下NProgress，它包含了如下几个常用的方法：
-
-//NProgress.start() — 显示加载条
-//NProgress.set(0.4) — 设置加载的百分比
-//NProgress.inc() — 增加一点儿
-//NProgress.done() — 完成进度条
-
     if (!this.props.isFetching) {
+      //简单介绍一下NProgress，它包含了如下几个常用的方法：
+
+      //NProgress.start() — 显示加载条
+      //NProgress.set(0.4) — 设置加载的百分比
+      //NProgress.inc() — 增加一点儿
+      //NProgress.done() — 完成进度条
       NProgress.done();
     }
   }
 
 //componentWillReceiveProps(object nextProps)
-//在组件接收到一个新的prop时被执行。这个方法在初始化render时不会被调用
+//在组件接收到一个新的prop时被执行。并将其作为参数nextProps使用,这个方法在初始化render时不会被调用
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.isFetching) {

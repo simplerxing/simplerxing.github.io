@@ -17,7 +17,7 @@ import '../../css/nprogress.scss';
 //React Router 是建立在 history 之上的。 简而言之，一个 history 知道如何去监听浏览器地址栏的变化， 
 //并解析这个 URL 转化为 location 对象， 然后 router 使用它匹配到路由，最后正确地渲染对应的组件。
 
-setTimeout(function(){
+/*setTimeout(function(){
 
 
   //<iframe> 标签规定一个内联框架。
@@ -34,7 +34,7 @@ setTimeout(function(){
     }, 0);
   };
   document.body.appendChild(iframe);
-},0);
+},0);*/
 
 
 //如果你想要进一步个性化你的history选项，或者使用其他方式去增强你的history，你可以使用useRouterHistory
