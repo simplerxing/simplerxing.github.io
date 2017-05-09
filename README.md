@@ -34,7 +34,7 @@ $ npm install -g webpack@1.13.2
 ### 安装
 
 ``` bash
-$ cd cobish.github.io
+$ cd simplerxing.github.io
 $ npm install
 ```
 
