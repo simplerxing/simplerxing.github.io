@@ -11,7 +11,7 @@ import { REQUEST_ISSUES, RECEIVE_ISSUES } from '../constants/ActionTypes.js';
 import { CONFIG } from '../constants/Config.js';
 
 //action创建函数,requestIssues和receiveIssues，返回一个action对象
-// 获取issues
+//获取issues
 function requestIssues(filter, perPage) {
   return {
     type: REQUEST_ISSUES,
@@ -78,7 +78,7 @@ export function fetchIssues(filter, perPage) {
     //Promise 对象的 then 方法都会运行。如果承诺成功完成，
     //则将运行 then 方法的履行处理程序函数。如果承诺被拒绝，则将运行 then 方法（或 catch 方法）的错误处理程序函数。
 
-    //这里我们通过网络获取一个jsonu对象并将其给receiveIssues函数。最简单的用法是只提供一个参数用来指明想
+    //这里我们通过网络获取一个json对象并将其给receiveIssues函数。最简单的用法是只提供一个参数用来指明想
     //fetch到的资源路径url，然后返回一个包含响应结果的promise(一个 Response 对象)。
 
     //当然它只是一个 HTTP 响应，而不是真的需要的内容。为了获取内容，我们需要使用 receiveIssues() 方法
@@ -99,6 +99,8 @@ function shouldFetchIssues(state) {
     return true;
   }
 
+  //state.items.length如果不为0，则!state.items.length为false
+
   return !state.items.length;
 }
 
@@ -110,6 +112,7 @@ export function fetchIssuesIfNeeded(filter, perPage) {
   // 当已经有issues的时候，则减少网络请求
   return function(dispatch, getState) {
     if ( shouldFetchIssues(getState()) ) {
+      //console.log(getState())
       // 在 thunk 里 dispatch 另一个 thunk！
       return dispatch(fetchIssues(filter, perPage));
     } else {

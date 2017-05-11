@@ -5,6 +5,7 @@ import Article from '../components/Article.js';
 
 import '../../css/zenburn.scss';
 import '../../css/article.scss';
+
  
 class Post extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Post extends Component {
 
     let view = [];
     this.props.items.map((item, index) => {
+      //console.log(this.props.params.id)
       if (parseInt(item.number) === parseInt(this.props.params.id)) {
         view.push(
           <Article {...item}  key={index} />

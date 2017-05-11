@@ -4,6 +4,7 @@ import hljs from 'highlight.js';
 import { CONFIG } from '../constants/Config.js';
 
 export default class Article extends Component {
+  //componentWillMount会在组件render之前执行，并且永远都只执行一次
   componentWillMount() {
     window.scrollTo(0, 0);
 

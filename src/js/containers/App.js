@@ -4,60 +4,59 @@ import NProgress from 'nprogress';
 import { CONFIG } from '../constants/Config.js';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.addBaiduAnaly = this.addBaiduAnaly.bind(this);
-    //this.addDuoshuoComment = this.addDuoshuoComment.bind(this);
-  }
-
-//componentWillMount会在组件render之前执行，并且永远都只执行一次
-// componentDidMount()这个方法会在组件加载完毕之后立即执行。在这个时候之后组件已经生成了对应的DOM结构，
-//可以通过this.getDOMNode()来进行访问
-
-  componentDidMount() {
-    // 添加百度统计
-    this.addBaiduAnaly();
-
-    // 添加多说评论框
-    //this.addDuoshuoComment();
-
-    document.title = CONFIG.title;
-
-//简单介绍一下NProgress，它包含了如下几个常用的方法：
-
-//NProgress.start() — 显示加载条
-//NProgress.set(0.4) — 设置加载的百分比
-//NProgress.inc() — 增加一点儿
-//NProgress.done() — 完成进度条
-
-    if (!this.props.isFetching) {
-      NProgress.done();
+    constructor(props) {
+        super(props);
+        this.addBaiduAnaly = this.addBaiduAnaly.bind(this);
+        //this.addDuoshuoComment = this.addDuoshuoComment.bind(this);
     }
-  }
 
-//componentWillReceiveProps(object nextProps)
-//在组件接收到一个新的prop时被执行。这个方法在初始化render时不会被调用
+    //componentWillMount会在组件render之前执行，并且永远都只执行一次
+    // componentDidMount()这个方法会在组件加载完毕之后立即执行。在这个时候之后组件已经生成了对应的DOM结构，
+    //可以通过this.getDOMNode()来进行访问
 
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.isFetching) {
-      document.title = CONFIG.title;
-      NProgress.done();
+    componentDidMount() {
+        // 添加百度统计
+        this.addBaiduAnaly();
+
+        // 添加多说评论框
+        //this.addDuoshuoComment();
+
+        document.title = CONFIG.title;
+
+        if (!this.props.isFetching) {
+            //简单介绍一下NProgress，它包含了如下几个常用的方法：
+
+            //NProgress.start() — 显示加载条
+            //NProgress.set(0.4) — 设置加载的百分比
+            //NProgress.inc() — 增加一点儿
+            //NProgress.done() — 完成进度条
+            NProgress.done();
+        }
     }
-  }
 
-  addBaiduAnaly() {
-    if (document.domain.indexOf('github.io') > -1) {
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement('script');
-        hm.src = '//hm.baidu.com/hm.js?' + CONFIG['baiduAnaly'];
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+    //componentWillReceiveProps(object nextProps)
+    //在组件接收到一个新的prop时被执行。并将其作为参数nextProps使用,这个方法在初始化render时不会被调用
+
+    componentWillReceiveProps(nextProps) {
+        if (!nextProps.isFetching) {
+            document.title = CONFIG.title;
+            NProgress.done();
+        }
     }
-  }
 
-  /*--
+    addBaiduAnaly() {
+        if (document.domain.indexOf('github.io') > -1) {
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement('script');
+                hm.src = '//hm.baidu.com/hm.js?' + CONFIG['baiduAnaly'];
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        }
+    }
+
+    /*--
   addDuoshuoComment() {
     window.duoshuoQuery = { short_name: CONFIG.duoshuo };
     (function() {
@@ -71,33 +70,43 @@ class App extends Component {
   }
   --*/
 
-  render() {
-    return (
-      <div>
-        <div id="logo">
-          <a href="#/">simplerxing.github.io</a>
-        </div>
-        <div>
-          {this.props.children}
-        </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+            <div id="logo">
+            <a href="#/">simplerxing.github.io</a>
+            </div>
+            <div className="row">
+            <div className="col-md-8">.col-md-8</div>
+            <div className="col-md-4">.col-md-4</div>
+            </div>
+            <div className="list-group">
+            <a className="list-group-item" href="#"><i className="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
+            <a className="list-group-item" href="#"><i className="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Library</a>
+            <a className="list-group-item" href="#"><i className="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; Applications</a>
+            <a className="list-group-item" href="#"><i className="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Settings</a>
+            </div>
+            <div>
+            {this.props.children}
+            </div>
+            </div>
+        );
+    }
 };
 //使用 connect() 前，需要先定义 mapStateToProps 这个函数来指定如何把当前 Redux store state 映射到展示组件的 props 中。
 function mapStateToProps(state) {
-  const {
-    isFetching,
-    items
-  } = state || {
-    isFetching: true,
-    items: []
-  };
+    const {
+        isFetching,
+        items
+    } = state || {
+        isFetching: true,
+        items: []
+    };
 
-  return {
-    isFetching,
-    items
-  }
+    return {
+        isFetching,
+        items
+    }
 }
 
 //这样就可以在 App 这个组件里面通过 props 拿到 Store 的 dispatch 方法，但是注意现在的 App 没有监听
