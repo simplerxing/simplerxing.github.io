@@ -72,12 +72,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container sidebar-position-left page-home">
         <div id="logo">
           <a href="#/">simplerxing.github.io</a>
         </div>
         <div>
           {this.props.children}
+        </div>
+        <div className="row">
+        <div className="col-md-8">.col-md-8</div>
+        <div className="col-md-4">.col-md-4</div>
         </div>
       </div>
     );

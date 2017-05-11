@@ -32,7 +32,9 @@ module.exports = {
       'react-redux',
       'redux',
       'redux-thunk',
-      'nprogress'
+      'nprogress',
+      'jquery',
+      'bootstrap'
     ]
   },
   output: {
@@ -41,21 +43,36 @@ module.exports = {
     chunkFilename: isProd() ? '[name].chunk.[chunkhash:8].js' : '[name].chunk.js',
     publicPath: isProd() ? './dist/' : '/dist/'
   },
+  //test：一个匹配loaders所处理的文件的拓展名的正则表达式（必须）
+  //loader：loader的名称（必须）
+  //include/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）；
+  //query：为loaders提供额外的设置选项（可选）
   module: {
     loaders: [{
       test: /\.scss$/,
       exclude: /node_modules/,
+      //loader: 'style!css'//添加对样式表的处理
+      //感叹号的作用在于使同一文件能够使用不同类型的loader
+      //ExtractTextPlugin.extract(options: loader | object)
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader', {
         publicPath: '.'
       })
-    }, {
+    },{
+      test:/\.css$/,
+      loaders: ['style-loader','css-loader']
+    },{
       test: /\.(png|jpg)$/,
       loader: 'file-loader?name=/[name].[hash:8].[ext]'
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
       loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
-    }]
+    }, 
+    //显示bootstrap中css文件内引用的很多类型的字体文件和矢量图文件
+    { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+    { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+    { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+    { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }]
   },
   plugins: getPlugins()
 };
@@ -93,7 +110,13 @@ function getPlugins() {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV.trim())
     }),
     new webpack.optimize.CommonsChunkPlugin('vendor', isProd() ? 'vendor.[chunkhash:8].js' : 'vendor.js'),
+    //ExtractTextPlugin：分离CSS和JS文件
     new ExtractTextPlugin(isProd() ? '[name].[chunkhash:8].css' : '[name].css'),
+    //把jquery设置为全局变量
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
   ];
 
   if (isDev()) {
@@ -114,7 +137,7 @@ function getPlugins() {
         }
       }),
       new HtmlWebpackPlugin({
-        title: 'cobish - 写给未来的自己',
+        title: 'simplerxing - blog',
         filename: '../index.html',
         template: './src/html/index.html'
       }),

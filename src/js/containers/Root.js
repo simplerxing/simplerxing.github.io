@@ -3,15 +3,17 @@ import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 import { CONFIG } from '../constants/Config.js';
 import NProgress from 'nprogress';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 import Menu from '../components/Menu.js';
 import App from '../containers/App.js';
 
-import '../../css/reset.scss';
-import '../../css/fonts.scss';
-import '../../css/index.scss';
-import '../../css/list.scss';
-import '../../css/nprogress.scss';
+//import '../../css/reset.scss';
+//import '../../css/fonts.scss';
+//import '../../css/index.scss';
+//import '../../css/list.scss';
+//import '../../css/nprogress.scss';
 
 
 //React Router 是建立在 history 之上的。 简而言之，一个 history 知道如何去监听浏览器地址栏的变化， 

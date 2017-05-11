@@ -5,6 +5,7 @@ import Article from '../components/Article.js';
 
 import '../../css/zenburn.scss';
 import '../../css/article.scss';
+
  
 class Post extends Component {
   constructor(props) {
