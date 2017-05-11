@@ -4,11 +4,13 @@ import { createHashHistory } from 'history';
 import { CONFIG } from '../constants/Config.js';
 import NProgress from 'nprogress';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 
 
 import Menu from '../components/Menu.js';
 import App from '../containers/App.js';
 
+import '../../css/main.scss';
 //import '../../css/reset.scss';
 //import '../../css/fonts.scss';
 //import '../../css/index.scss';

@@ -79,10 +79,6 @@ class App extends Component {
         <div>
           {this.props.children}
         </div>
-        <div className="row">
-        <div className="col-md-8">.col-md-8</div>
-        <div className="col-md-4">.col-md-4</div>
-        </div>
       </div>
     );
   }

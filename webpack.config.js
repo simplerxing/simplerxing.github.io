@@ -67,7 +67,10 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/,
       loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
-    }, 
+    }, { 
+        test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,  
+        loader: 'url-loader?importLoaders=1&limit=1000&name=/fonts/[name].[ext]' 
+},
     //显示bootstrap中css文件内引用的很多类型的字体文件和矢量图文件
     { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
     { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
