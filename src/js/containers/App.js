@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import NProgress from 'nprogress';
 import { CONFIG } from '../constants/Config.js';
 
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -73,23 +74,39 @@ class App extends Component {
     render() {
         return (
             <div>
-            <div id="logo">
-            <a href="#/">simplerxing.github.io</a>
+            <nav className= "navbar navbar-default navbar-inverse">
+            <div className="container-fluid">
+            <div className="navbar-header">  
+            <button type="button" className="navbar-toggle" data-toggle = "collapse"  data-target = "#target-menu">  
+            <span className="sr-only"></span>  
+            <span className="icon-bar"></span>  
+            <span className="icon-bar"></span>  
+            <span className="icon-bar"></span>
+            </button> 
+            <a className="navbar-brand" href="#/"><i className="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp;Blog</a> 
+            </div> 
+            <div className="collapse navbar-collapse" id="target-menu">
+            <ul className="nav navbar-nav">      
+            <li><a href="#/"><i className="fa fa-home fa-fw"></i>&nbsp; 主页</a></li>
+            <li><a href="#/all"><i className="fa fa-th fa-fw"></i>&nbsp; 全部</a></li>
+            <li><a href="#/archive"><i className="fa fa-archive fa-fw"></i>&nbsp; 归档</a></li>
+            <li><a href="#/tags"><i className="fa fa-tags fa-fw"></i>&nbsp; 标签</a></li>
+            <li><a href="#/about"><i className="fa fa-user fa-fw"></i>&nbsp; 关于</a></li>
+            </ul>
             </div>
-            <div className="row">
-            <div className="col-md-8">.col-md-8</div>
-            <div className="col-md-4">.col-md-4</div>
             </div>
-            <div className="list-group">
-            <a className="list-group-item" href="#"><i className="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
-            <a className="list-group-item" href="#"><i className="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Library</a>
-            <a className="list-group-item" href="#"><i className="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; Applications</a>
-            <a className="list-group-item" href="#"><i className="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Settings</a>
-            </div>
+            </nav>
             <div>
             {this.props.children}
             </div>
+            <footer className="footer">
+            <div className="footer-inner">
+            <div className="copyright">© 2015 - 2017&nbsp;&nbsp;<i className="fa fa-heart fa-fw"></i>&nbsp;&nbsp;SimplerXing</div>
+            <div className="gitmail"><a href="https://github.com/simplerxing"><i className="fa fa-github fa-fw"></i>github</a></div>
+            <div className="gitmail"><a href="mailto: simplerxing@gmail.com"><i className="fa fa-envelope fa-fw"></i>email</a></div>
             </div>
+            </footer>
+            </div>           
         );
     }
 };

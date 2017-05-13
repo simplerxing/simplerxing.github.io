@@ -3,20 +3,22 @@ import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 import { CONFIG } from '../constants/Config.js';
 import NProgress from 'nprogress';
-import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/dist/css/bootstrap.css';
 
-
-import Menu from '../components/Menu.js';
+import Mainpage from '../components/Mainpage.js';
 import App from '../containers/App.js';
+import About from '../components/About.js';
 
+
+import '../../css/article.scss';
 import '../../css/main.scss';
-//import '../../css/reset.scss';
-//import '../../css/fonts.scss';
+import '../../css/reset.scss';
+import '../../css/fonts.scss';
 //import '../../css/index.scss';
-//import '../../css/list.scss';
-//import '../../css/nprogress.scss';
-
+import '../../css/list.scss';
+import '../../css/nprogress.scss';
 
 //React Router 是建立在 history 之上的。 简而言之，一个 history 知道如何去监听浏览器地址栏的变化， 
 //并解析这个 URL 转化为 location 对象， 然后 router 使用它匹配到路由，最后正确地渲染对应的组件。
@@ -95,11 +97,12 @@ var Post = (location, callback) => {
 const routes = (
   <Route path="/" component={App}>
     //当 url 为/时渲染 Dashboard 
-    <IndexRoute component={Menu} />
+    <IndexRoute component={Mainpage} />
+    <Route path="/about" component={About} />
     <Route path="/all" getComponent={All} />
     <Route path="/archive" getComponent={Archive} />
     <Route path="/tags" getComponent={Tags} />
-    <Route path="/post/:id" getComponent={Post} />
+    <Route path="/post/:id" getComponent={Post} />  
   </Route>
 );
 
