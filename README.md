@@ -34,6 +34,7 @@ $ npm install -g webpack@1.13.2
 ### 安装
 
 ``` bash
+$ git clone https://github.com/simplerxing/simplerxing.github.io.git
 $ cd simplerxing.github.io
 $ npm install
 ```
